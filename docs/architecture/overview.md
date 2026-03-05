@@ -20,3 +20,39 @@ The architecture consists of three main layers:
 - **Metacognitive Self-Correction Loop**: Runtime monitoring that automatically detects errors or hallucinations and triggers corrective actions without human intervention.
 
 **Deployment Model**: Psiquis-X is deployed as a self-contained system in the client’s environment or dedicated infrastructure. It is not offered as a shared SaaS platform.
+
+## High-Level Architecture Flow
+
+```mermaid
+graph TD
+    subgraph Data & State Layer
+        LTM[(ChromaDB & SQLite)]
+        Telemetry[Next.js 19 Dashboard]
+    end
+
+    subgraph Compute Routing
+        Router{Universal Cortex Router}
+        Local[Local / Groq]
+        Frontier[Gemini / Claude]
+    end
+
+    subgraph Cognitive Orchestration
+        Orchest[LangGraph Engine]
+        AgIngest(Ingestion Agents)
+        AgValid(Validation Agents)
+        Audit(Courtroom Audit)
+    end
+
+    Input((Request)) --> Orchest
+    Orchest --> AgIngest
+    AgIngest <--> LTM
+    Orchest --> Router
+    Router --> Local
+    Router --> Frontier
+    Local --> AgValid
+    Frontier --> AgValid
+    AgValid --> Audit
+    Audit -- "Metacognitive Loop" --> Orchest
+    Audit --> Output((Final Decision))
+    Orchest -. "Metrics" .-> Telemetry
+```

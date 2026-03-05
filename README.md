@@ -1,12 +1,21 @@
 <div align="center">
 
-# Psiquis-X
+```text
+██████╗ ███████╗██╗ ██████╗ ██╗   ██╗██╗███████╗    ██╗  ██╗
+██╔══██╗██╔════╝██║██╔═══██╗██║   ██║██║██╔════╝    ╚██╗██╔╝
+██████╔╝███████╗██║██║   ██║██║   ██║██║███████╗█████╗█████╗ 
+██╔═══╝ ╚════██║██║██║▄▄ ██║██║   ██║██║╚════██║╚════╝██╔═██╗
+██║     ███████║██║╚██████╔╝╚██████╔╝██║███████║      ██║  ██╗
+╚═╝     ╚══════╝╚═╝ ╚══▀▀═╝  ╚═════╝ ╚═╝╚══════╝      ╚═╝  ╚═╝
+```
 
 **Private Multi-Agent Orchestration Framework**  
 *Production-grade autonomous systems for enterprise workflows*
 
-[![License: Proprietary](https://img.shields.io/badge/License-Private-red.svg)](LICENSE)
-[![Built with LangGraph](https://img.shields.io/badge/Architecture-LangGraph-purple.svg)](https://langchain-ai.github.io/langgraph/)
+[![License: Proprietary](https://img.shields.io/badge/License-Private-000000.svg?style=for-the-badge&logo=shield)](LICENSE)
+[![Built with LangGraph](https://img.shields.io/badge/Architecture-LangGraph-5c3b8e.svg?style=for-the-badge&logo=langchain)](https://langchain-ai.github.io/langgraph/)
+[![Agents: Courtroom Validation](https://img.shields.io/badge/Agents-Courtroom_Validation-00a67d.svg?style=for-the-badge&logo=probot)](#)
+[![Latency: Sub-Second](https://img.shields.io/badge/Latency-Sub--Second-007acc.svg?style=for-the-badge&logo=speedtest)](#)
 
 </div>
 
@@ -18,12 +27,20 @@ The framework focuses on solving the main limitations of standard LLM applicatio
 
 ### Core Capabilities
 
+<div align="center">
+  <img src="docs/assets/dashboard-mockup.png" alt="Psiquis-X Observability Dashboard" width="800"/>
+</div>
+
 - Metacognitive self-correction loop for runtime hallucination detection and autonomous repair
 - Semantic routing with local embeddings to optimize LLM usage and reduce token costs
 - Stateful Long-Term Memory (LTM) using ChromaDB and SQLite for persistent context and agent identity
 - Universal Cortex Router for dynamic switching between Gemini, Claude, Groq, Vertex AI and local models
 - Adversarial validation layer (Courtroom Architecture) for high-accuracy data processing
 - Real-time observability dashboard built with Next.js 19 and Server-Sent Events (SSE)
+
+<div align="center">
+  <img src="docs/assets/router-abstract.png" alt="Universal Cortex Router Architecture" width="800"/>
+</div>
 
 ---
 
@@ -56,12 +73,14 @@ We work selectively with organizations in:
 
 ---
 
-## Architecture Documentation
+## Documentation
 
+- [Core Principles](docs/concepts/core-principles.md)
 - [System Architecture](docs/architecture/overview.md)
 - [Courtroom Architecture](docs/architecture/courtroom-architecture.md)
 - [Cortex Router](docs/architecture/cortex-router.md)
 - [Metacognitive Self-Correction](docs/architecture/metacognitive-loop.md)
+- [Development Roadmap](docs/ROADMAP.md)
 
 ---
 
