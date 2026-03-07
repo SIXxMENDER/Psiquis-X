@@ -68,30 +68,18 @@ graph LR
 * **Solution**: Psiquis-X dynamically slices PDFs (15k-token chunks with injected digital fingerprints) and uses *Intelligent Goal Deduction* to drop redundant files. Data is processed through an adversarial "Courtroom" loop where a Skeptic agent attacks the logic and a Judge agent validates outputs against strict Pydantic schemas. 
 * **Impact**: Extracted FY24-FY26 GAAP metrics (Revenue, Gross Margin, Net Income) with **100% data traceability**, **98/100 audit confidence**, and **zero hallucinations**. Generated a native FinOps-ready Enterprise Excel dashboard with YoY variance in exactly **290 seconds** at a tracked API cost of **$0.035 USD**.  
   [Full Walkthrough on YouTube](https://youtu.be/1s0xPj_1e7g)
-  
-  <br>
-  
-  https://github.com/user-attachments/assets/nvidia_benchmark.mp4
 
 ### 2. Autonomous Infrastructure Generation
 * **Problem**: Bootstrapping full-stack scaffolding manually delays time-to-market.
 * **Solution**: P-Series Genesis agents generate, compile, and iteratively self-heal code inside an asynchronous sandbox environment (`genesis_sandbox.py`).
 * **Impact**: Complete GitHub repository + functional demo deployed in **under 5 minutes**.  
   [Watch Full Demo](https://youtu.be/seWvcusMQFn8)
-  
-  <br>
-  
-  https://github.com/user-attachments/assets/demo_infrastructure.mp4
 
 ### 3. Quantitative HFT Arbitrage
 * **Problem**: Human delay in finding inter-exchange crypto spreads results in missed micro-opportunities.
 * **Solution**: Constant multi-node WebSocket scanning via CCXT, evaluating risk, latency, and spread dynamically.
 * **Impact**: Asynchronous arbitrage scanner achieving **sub-200ms** execution latency.  
   [Watch Full Demo](https://youtu.be/HTRTWe-cw9I)
-  
-  <br>
-  
-  https://github.com/user-attachments/assets/demo_arbitrage.mp4
 
 ### 4. Multimodal Market Intelligence & RFPs
 * **Problem**: Digesting visual charts and 500-page government RFPs lacks deep semantic mapping.
