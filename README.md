@@ -1,12 +1,12 @@
 <div align="center">
 
-```text
-              ██████╗ ███████╗██╗ ██████╗ ██╗   ██╗██╗███████╗    ██╗  ██╗
-              ██╔══██╗██╔════╝██║██╔═══██╗██║   ██║██║██╔════╝    ╚██╗██╔╝
-              ██████╔╝███████╗██║██║   ██║██║   ██║██║███████╗█████╗█████╗ 
-              ██╔═══╝ ╚════██║██║██║▄▄ ██║██║   ██║██║╚════██║╚════╝██╔═██╗
-              ██║     ███████║██║╚██████╔╝╚██████╔╝██║███████║      ██║  ██╗
-              ╚═╝     ╚══════╝╚═╝ ╚══▀▀═╝  ╚═════╝ ╚═╝╚══════╝      ╚═╝  ╚═╝
+```diff
+-             ██████╗ ███████╗██╗ ██████╗ ██╗   ██╗██╗███████╗    ██╗  ██╗
+-             ██╔══██╗██╔════╝██║██╔═══██╗██║   ██║██║██╔════╝    ╚██╗██╔╝
+-             ██████╔╝███████╗██║██║   ██║██║   ██║██║███████╗█████╗█████╗ 
+-             ██╔═══╝ ╚════██║██║██║▄▄ ██║██║   ██║██║╚════██║╚════╝██╔═██╗
+-             ██║     ███████║██║╚██████╔╝╚██████╔╝██║███████║      ██║  ██╗
+-             ╚═╝     ╚══════╝╚═╝ ╚══▀▀═╝  ╚═════╝ ╚═╝╚══════╝      ╚═╝  ╚═╝
 ```
 
 **Private Multi-Agent Orchestration Framework**  
@@ -44,9 +44,8 @@ graph LR
     style E fill:#00a67d,color:#fff
 ```
 
-<div align="center"><video src="https://github.com/user-attachments/assets/088bcee4-744a-4ea8-9487-ed5e4d437e47
-" width="800" controls autoplay loop muted></video>
-  <img 
+<div align="center">
+  <img src="docs/assets/dashboard-mockup.png" alt="Psiquis-X Observability Dashboard" width="800"/>
 </div>
 
 - **Dual Agent Architecture (P-Series & S-Series)** for heavy processing and parallel validation
