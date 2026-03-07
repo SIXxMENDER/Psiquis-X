@@ -5,19 +5,20 @@ Psiquis-X is a multi-layered orchestration framework designed for deterministic 
 The architecture consists of three main layers:
 
 ## 1. Data & State Layer
-- **Stateful Long-Term Memory (LTM)**: Persistent context and agent identity maintained with ChromaDB (vector store) and SQLite (operational ledgers).
-- **Real-time Telemetry**: Execution metrics, token usage and latency are streamed via Server-Sent Events (SSE) to a Next.js 19 observability dashboard.
+- **Stateful Long-Term Memory (LTM)**: Persistent context maintained through the `StateManager` using ChromaDB and local Data Vaults.
+- **Real-time Telemetry (FastAPI & SSE)**: A lightweight, asynchronous FastAPI server (`server_v3_minimal`) streams execution metrics, token usage, and live agent thoughts via Server-Sent Events (SSE) to a Next.js 19 observability dashboard.
 
 ## 2. Compute Routing Layer – Universal Cortex Router
-- Dynamic routing engine that selects the optimal LLM provider based on task requirements, latency needs and cost.
-- Supports Vertex AI (Gemini), Groq, Anthropic (Claude), OpenAI and local models via Ollama.
-- **Semantic Routing**: Uses local embeddings to classify intent and avoid sending simple tasks to expensive frontier models.
+- Dynamic routing engine integrated natively with the **Model Context Protocol (MCP)** via dedicated `mcp_client` infrastructure.
+- Intelligently switches between Vertex AI (Gemini), Groq, Anthropic (Claude), OpenAI, and local Ollama deployments based on task requirements, latency needs, and cost.
+- **Semantic Intent Routing**: Uses local embeddings to classify incoming requests and avoid dispatching simple extraction tasks to expensive frontier models.
 
 ## 3. Cognitive Orchestration Layer
-- Built on LangGraph for graph-based multi-agent workflows.
-- **P-Series Agents**: Modular specialized agents for ingestion, validation, strategy, risk assessment and execution.
-- **Courtroom Architecture**: Adversarial validation pipeline (extraction → audit → schema enforcement → generation) to ensure factual and mathematical consistency.
-- **Metacognitive Self-Correction Loop**: Runtime monitoring that automatically detects errors or hallucinations and triggers corrective actions without human intervention.
+- Built on LangGraph `core/orchestration` for deterministic, graph-based multi-agent state management.
+- **P-Series Agents (Processing & Ingestion)**: Heavy-duty autonomous workers running in isolated sandbox environments (`genesis_sandbox`), responsible for ingestion, strategy, and execution.
+- **S-Series Agents (Supervision & Skepticism)**: Lightweight, parallel agents executing adversarial validation (`drift_search` and `hunter` modules) without blocking the main event loop.
+- **Courtroom Validation Pipeline**: Adversarial setup where S-Series agents actively seek structural flaws in P-Series outputs before generating the final Data Lineage output.
+- **Metacognitive Self-Correction Loop**: Runtime monitoring that automatically catches logic drifts and triggers autonomous repairs.
 
 **Deployment Model**: Psiquis-X is deployed as a self-contained system in the client’s environment or dedicated infrastructure. It is not offered as a shared SaaS platform.
 
@@ -26,33 +27,37 @@ The architecture consists of three main layers:
 ```mermaid
 graph TD
     subgraph Data & State Layer
-        LTM[(ChromaDB & SQLite)]
-        Telemetry[Next.js 19 Dashboard]
+        LTM[(ChromaDB & Data Vault)]
+        FastAPI{FastAPI Server: server_v3}
+        Telemetry[Next.js 19 Dashboard via SSE]
     end
 
     subgraph Compute Routing
         Router{Universal Cortex Router}
+        MCPContext[MCP Client Integration]
         Local[Local / Groq]
-        Frontier[Gemini / Claude]
+        Frontier[Vertex AI / Claude]
     end
 
     subgraph Cognitive Orchestration
-        Orchest[LangGraph Engine]
-        AgIngest(Ingestion Agents)
-        AgValid(Validation Agents)
-        Audit(Courtroom Audit)
+        Orchest[LangGraph Core Orchestration]
+        PSeries(P-Series: Processing Agents)
+        SSeries(S-Series: Supervision & Skeptic)
+        DriftSearch[Drift Search & Validation]
     end
 
-    Input((Request)) --> Orchest
-    Orchest --> AgIngest
-    AgIngest <--> LTM
+    Input((Request via REST/WS)) --> FastAPI
+    FastAPI --> Orchest
+    Orchest --> PSeries
+    PSeries <--> LTM
     Orchest --> Router
+    Router <--> MCPContext
     Router --> Local
     Router --> Frontier
-    Local --> AgValid
-    Frontier --> AgValid
-    AgValid --> Audit
-    Audit -- "Metacognitive Loop" --> Orchest
-    Audit --> Output((Final Decision))
-    Orchest -. "Metrics" .-> Telemetry
+    Local --> SSeries
+    Frontier --> SSeries
+    SSeries --> DriftSearch
+    DriftSearch -- "Metacognitive Trigger" --> Orchest
+    DriftSearch --> Output((Final JSON / Excel Output))
+    Orchest -. "Live Metrics" .-> Telemetry
 ```

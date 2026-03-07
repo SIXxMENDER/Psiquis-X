@@ -8,35 +8,36 @@ Unlike standard LLM systems that fail silently or produce confident hallucinatio
 
 ```mermaid
 stateDiagram-v2
-    [*] --> TaskExecution: Start Workflow
+    [*] --> TaskExecution: Start Workflow in core/orchestration
     
     state TaskExecution {
         [*] --> DraftGeneration
-        DraftGeneration --> SelfEvaluation: Internal Agent Review
+        DraftGeneration --> P_SeriesReview: Internal P-Series Review
         
-        SelfEvaluation --> DraftGeneration: Detected Minor Issue
-        SelfEvaluation --> AuditPhase: Passed Initial Check
+        P_SeriesReview --> DraftGeneration: Detected Minor Issue
+        P_SeriesReview --> AuditPhase: Passed Initial Check
     }
     
     TaskExecution --> AdversarialAudit
     
     state AdversarialAudit {
-        [*] --> FactCheck
+        [*] --> S_Series_DriftSearch: S-Series Scans for Anomalies
+        S_Series_DriftSearch --> FactCheck
         FactCheck --> SchemaCheck
     }
     
     AdversarialAudit --> Finalize: All Checks Passed
-    AdversarialAudit --> MetacognitiveCorrection: Error Detected
+    AdversarialAudit --> MetacognitiveCorrection: Drift or Flaw Detected
     
     state MetacognitiveCorrection {
-        [*] --> AnalyzeFailure
+        [*] --> AnalyzeFailure: Stateful History Analysis (StateManager)
         AnalyzeFailure --> FormulateFix
-        FormulateFix --> FetchMissingContext
+        FormulateFix --> FetchMissingContext: Call mcp_client tools
     }
     
-    MetacognitiveCorrection --> TaskExecution: Apply Fix & Retry
+    MetacognitiveCorrection --> TaskExecution: Reload State & Retry
     
-    Finalize --> [*]: Deliver Result
+    Finalize --> [*]: Deliver Result via SSE
 
     %% Styling
     classDef error fill:#e53935,color:white,font-weight:bold;

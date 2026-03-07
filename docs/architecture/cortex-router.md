@@ -10,18 +10,19 @@ Instead of relying on a single frontier model for every component of a workflow,
 
 ```mermaid
 flowchart LR
-    A[Incoming Task] --> B{Semantic Intent Router}
+    A[Incoming Task: server_v3_minimal] --> B{Semantic Intent Router}
     
     B -- "Low Complexity / High Speed" --> C[Groq / Llama 3]
     B -- "Deep Reasoning / Code" --> D[Claude 3.5 Sonnet]
     B -- "Large Context Window" --> E[Gemini 1.5 Pro]
     B -- "Data Privacy Required" --> F[Local Ollama Models]
     
-    C --> G[Aggregator]
+    C --> G[core/mcp_client.py]
     D --> G
     E --> G
     F --> G
-    G --> H([Task Completion])
+    
+    G --> H([Tool Aggregation & Completion])
 
     style B fill:#3a0ca3,stroke:#fff,stroke-width:2px,color:#fff
     style H fill:#00a67d,stroke:#000,stroke-width:2px,color:#fff

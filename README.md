@@ -27,16 +27,33 @@ The framework focuses on solving the main limitations of standard LLM applicatio
 
 ### Core Capabilities
 
+## How Psiquis-X Works
+
+```mermaid
+graph LR
+    A[Enterprise Data] -->|Messy PDFs/Web| B(Cortex Router)
+    B --> C{P-Series}
+    C -->|Draft Extraction| D{S-Series}
+    D -->|Adversarial Audit| C
+    D -->|Verified JSON| E[Data Vault & SSE]
+    E --> F[Next.js Dashboard]
+    
+    style B fill:#5c3b8e,color:#fff
+    style C fill:#007acc,color:#fff
+    style D fill:#a61a3f,color:#fff
+    style E fill:#00a67d,color:#fff
+```
+
 <div align="center">
   <img src="docs/assets/dashboard-mockup.png" alt="Psiquis-X Observability Dashboard" width="800"/>
 </div>
 
-- Metacognitive self-correction loop for runtime hallucination detection and autonomous repair
-- Semantic routing with local embeddings to optimize LLM usage and reduce token costs
-- Stateful Long-Term Memory (LTM) using ChromaDB and SQLite for persistent context and agent identity
-- Universal Cortex Router for dynamic switching between Gemini, Claude, Groq, Vertex AI and local models
-- Adversarial validation layer (Courtroom Architecture) for high-accuracy data processing
-- Real-time observability dashboard built with Next.js 19 and Server-Sent Events (SSE)
+- **Dual Agent Architecture (P-Series & S-Series)** for heavy processing and parallel validation
+- **Dynamic Ingestion Pipeline** with 15k-token slicing and strict data lineage tracking (Metadata-Injection)
+- Universal Cortex Router integrated natively with **Model Context Protocol (MCP)** for dynamic model switching (Gemini, Claude, Groq)
+- **Courtroom Validation Architecture**: Adversarial multi-agent setup (Skeptic vs. Judge) with strict mathematical rules for zero-hallucination outputs
+- Real-time observability dashboard (Next.js 19) streaming telemetry via Server-Sent Events (SSE)
+- Stateful Long-Term Memory (LTM) using ChromaDB and SQLite for persistent context
 
 <div align="center">
   <img src="docs/assets/router-abstract.png" alt="Universal Cortex Router Architecture" width="800"/>
@@ -44,20 +61,40 @@ The framework focuses on solving the main limitations of standard LLM applicatio
 
 ---
 
-## Demonstrated Capabilities
+## Enterprise Use Cases & Benchmarks
 
-- **Autonomous Infrastructure Generation**: Complete GitHub repository + functional demo generated in under 5 minutes  
-  [Watch Demo](https://youtu.be/seWvcusMQFn8)
+### 1. Financial Data Extraction & Audit (NVIDIA)
+* **Problem**: Large Language Models are black boxes, which is a liability in the financial sector. Analysts spend hours manually extracting and verifying historical metrics from dense 10-K/10-Q reports without deterministic traceability.
+* **Solution**: Psiquis-X dynamically slices PDFs (15k-token chunks with injected digital fingerprints) and uses *Intelligent Goal Deduction* to drop redundant files. Data is processed through an adversarial "Courtroom" loop where a Skeptic agent attacks the logic and a Judge agent validates outputs against strict Pydantic schemas. 
+* **Impact**: Extracted FY24-FY26 GAAP metrics (Revenue, Gross Margin, Net Income) with **100% data traceability**, **98/100 audit confidence**, and **zero hallucinations**. Generated a native FinOps-ready Enterprise Excel dashboard with YoY variance in exactly **290 seconds** at a tracked API cost of **$0.035 USD**.  
+  [Full Walkthrough on YouTube](https://youtu.be/1s0xPj_1e7g)
+  
+  <br>
+  <video src="docs/assets/demos/nvidia_benchmark.mp4" width="800" controls autoplay loop muted></video>
 
-- **HFT Low-Latency Engine**: Asynchronous arbitrage scanner achieving sub-200ms execution latency  
-  [Watch Demo](https://youtu.be/HTRTWe-cw9I)
+### 2. Autonomous Infrastructure Generation
+* **Problem**: Bootstrapping full-stack scaffolding manually delays time-to-market.
+* **Solution**: P-Series Genesis agents generate, compile, and iteratively self-heal code inside an asynchronous sandbox environment (`genesis_sandbox.py`).
+* **Impact**: Complete GitHub repository + functional demo deployed in **under 5 minutes**.  
+  [Watch Full Demo](https://youtu.be/seWvcusMQFn8)
+  
+  <br>
+  <video src="docs/assets/demos/demo_infrastructure.mp4" width="800" controls autoplay loop muted></video>
 
-- **Multimodal Market Intelligence**: Visual analysis of TradingView charts with institutional report generation  
-  [Watch Demo](https://youtu.be/5zqUOHmf8iY)
+### 3. Quantitative HFT Arbitrage
+* **Problem**: Human delay in finding inter-exchange crypto spreads results in missed micro-opportunities.
+* **Solution**: Constant multi-node WebSocket scanning via CCXT, evaluating risk, latency, and spread dynamically.
+* **Impact**: Asynchronous arbitrage scanner achieving **sub-200ms** execution latency.  
+  [Watch Full Demo](https://youtu.be/HTRTWe-cw9I)
+  
+  <br>
+  <video src="docs/assets/demos/demo_arbitrage.mp4" width="800" controls autoplay loop muted></video>
 
-- **Enterprise RFP Automation**: End-to-end RAG pipeline for processing complex government and corporate RFPs  
-  [Watch Demo](https://youtu.be/sy_w6WG3Bhc)
-
+### 4. Multimodal Market Intelligence & RFPs
+* **Problem**: Digesting visual charts and 500-page government RFPs lacks deep semantic mapping.
+* **Solution**: Hybrid RAG (Vector + Graph) using Drift Search dynamically pairs visual TradingView data with vast text troves.
+* **Impact**: Zero-context-loss extraction and real-time report generation for institutional decision making.  
+  [Watch Demo](https://youtu.be/5zqUOHmf8iY) [RFP Demo](https://youtu.be/sy_w6WG3Bhc)
 ---
 
 ## Proprietary Technology
@@ -73,10 +110,21 @@ We work selectively with organizations in:
 
 ---
 
+## Security & Enterprise Compliance
+
+Psiquis-X was built ground-up for zero-trust financial environments requiring strict data governance:
+
+- **Isolated Sandboxing**: AI-generated code and logic are executed in segregated subprocesses (`genesis_sandbox.py`) with strict timeout limits to prevent logical injection attacks.
+- **Ephemeral State (LTM)**: Long-Term Memory is managed locally via ChromaDB and SQLite. In-memory keys and secrets are processed transiently via `.env` protocols before entering permanent storage.
+- **Adversarial Halucination Defense**: The Courtroom Validation Architecture statistically guarantees zero hallucinations in critical extractions by pairing generation agents with adversarial skeptical agents enforcing rigid Pydantic schemas.
+
+---
+
 ## Documentation
 
 - [Core Principles](docs/concepts/core-principles.md)
 - [System Architecture](docs/architecture/overview.md)
+- [Core Modules Breakdown](docs/architecture/modules.md)
 - [Courtroom Architecture](docs/architecture/courtroom-architecture.md)
 - [Cortex Router](docs/architecture/cortex-router.md)
 - [Metacognitive Self-Correction](docs/architecture/metacognitive-loop.md)
