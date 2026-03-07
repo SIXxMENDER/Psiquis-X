@@ -6,7 +6,7 @@ The **Universal Cortex Router** is the dynamic routing engine at the heart of Ps
 
 Instead of relying on a single frontier model for every component of a workflow, the router analyzes the intent and complexity of the prompt:
 - **Simple, repetitive tasks** (like standard text formatting or basic extraction) are routed to local models (via Ollama) or extremely fast APIs (like Groq).
-- **Complex reasoning and coding** are routed to frontier models (Anthropic Claude 3.5 Sonnet, Google Gemini 1.5 Pro).
+- **Complex reasoning and coding** are routed to frontier models (Anthropic Claude 3.5 Sonnet, Google Gemini 2.5 Pro).
 
 ```mermaid
 flowchart LR
@@ -14,7 +14,7 @@ flowchart LR
     
     B -- "Low Complexity / High Speed" --> C[Groq / Llama 3]
     B -- "Deep Reasoning / Code" --> D[Claude 3.5 Sonnet]
-    B -- "Large Context Window" --> E[Gemini 1.5 Pro]
+    B -- "Large Context Window" --> E[Gemini 2.5 Pro]
     B -- "Data Privacy Required" --> F[Local Ollama Models]
     
     C --> G[core/mcp_client.py]

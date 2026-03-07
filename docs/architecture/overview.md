@@ -10,7 +10,7 @@ The architecture consists of three main layers:
 
 ## 2. Compute Routing Layer – Universal Cortex Router
 - Dynamic routing engine integrated natively with the **Model Context Protocol (MCP)** via dedicated `mcp_client` infrastructure.
-- Intelligently switches between Vertex AI (Gemini), Groq, Anthropic (Claude), OpenAI, and local Ollama deployments based on task requirements, latency needs, and cost.
+- Intelligently switches between Vertex AI (Gemini 2.5 Pro), Groq, Anthropic (Claude), OpenAI, and local Ollama deployments based on task requirements, latency needs, and cost.
 - **Semantic Intent Routing**: Uses local embeddings to classify incoming requests and avoid dispatching simple extraction tasks to expensive frontier models.
 
 ## 3. Cognitive Orchestration Layer

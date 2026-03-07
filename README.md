@@ -1,12 +1,12 @@
 <div align="center">
 
 ```text
-██████╗ ███████╗██╗ ██████╗ ██╗   ██╗██╗███████╗    ██╗  ██╗
-██╔══██╗██╔════╝██║██╔═══██╗██║   ██║██║██╔════╝    ╚██╗██╔╝
-██████╔╝███████╗██║██║   ██║██║   ██║██║███████╗█████╗█████╗ 
-██╔═══╝ ╚════██║██║██║▄▄ ██║██║   ██║██║╚════██║╚════╝██╔═██╗
-██║     ███████║██║╚██████╔╝╚██████╔╝██║███████║      ██║  ██╗
-╚═╝     ╚══════╝╚═╝ ╚══▀▀═╝  ╚═════╝ ╚═╝╚══════╝      ╚═╝  ╚═╝
+              ██████╗ ███████╗██╗ ██████╗ ██╗   ██╗██╗███████╗    ██╗  ██╗
+              ██╔══██╗██╔════╝██║██╔═══██╗██║   ██║██║██╔════╝    ╚██╗██╔╝
+              ██████╔╝███████╗██║██║   ██║██║   ██║██║███████╗█████╗█████╗ 
+              ██╔═══╝ ╚════██║██║██║▄▄ ██║██║   ██║██║╚════██║╚════╝██╔═██╗
+              ██║     ███████║██║╚██████╔╝╚██████╔╝██║███████║      ██║  ██╗
+              ╚═╝     ╚══════╝╚═╝ ╚══▀▀═╝  ╚═════╝ ╚═╝╚══════╝      ╚═╝  ╚═╝
 ```
 
 **Private Multi-Agent Orchestration Framework**  
@@ -50,7 +50,7 @@ graph LR
 
 - **Dual Agent Architecture (P-Series & S-Series)** for heavy processing and parallel validation
 - **Dynamic Ingestion Pipeline** with 15k-token slicing and strict data lineage tracking (Metadata-Injection)
-- Universal Cortex Router integrated natively with **Model Context Protocol (MCP)** for dynamic model switching (Gemini, Claude, Groq)
+- Universal Cortex Router integrated natively with **Model Context Protocol (MCP)** for dynamic model switching (Gemini 2.5 Pro, Claude, Groq)
 - **Courtroom Validation Architecture**: Adversarial multi-agent setup (Skeptic vs. Judge) with strict mathematical rules for zero-hallucination outputs
 - Real-time observability dashboard (Next.js 19) streaming telemetry via Server-Sent Events (SSE)
 - Stateful Long-Term Memory (LTM) using ChromaDB and SQLite for persistent context
@@ -70,7 +70,8 @@ graph LR
   [Full Walkthrough on YouTube](https://youtu.be/1s0xPj_1e7g)
   
   <br>
-  <video src="docs/assets/demos/nvidia_benchmark.mp4" width="800" controls autoplay loop muted></video>
+  
+  https://github.com/user-attachments/assets/nvidia_benchmark.mp4
 
 ### 2. Autonomous Infrastructure Generation
 * **Problem**: Bootstrapping full-stack scaffolding manually delays time-to-market.
@@ -79,7 +80,8 @@ graph LR
   [Watch Full Demo](https://youtu.be/seWvcusMQFn8)
   
   <br>
-  <video src="docs/assets/demos/demo_infrastructure.mp4" width="800" controls autoplay loop muted></video>
+  
+  https://github.com/user-attachments/assets/demo_infrastructure.mp4
 
 ### 3. Quantitative HFT Arbitrage
 * **Problem**: Human delay in finding inter-exchange crypto spreads results in missed micro-opportunities.
@@ -88,7 +90,8 @@ graph LR
   [Watch Full Demo](https://youtu.be/HTRTWe-cw9I)
   
   <br>
-  <video src="docs/assets/demos/demo_arbitrage.mp4" width="800" controls autoplay loop muted></video>
+  
+  https://github.com/user-attachments/assets/demo_arbitrage.mp4
 
 ### 4. Multimodal Market Intelligence & RFPs
 * **Problem**: Digesting visual charts and 500-page government RFPs lacks deep semantic mapping.
