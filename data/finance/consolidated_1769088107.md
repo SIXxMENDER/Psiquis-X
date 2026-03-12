@@ -1,0 +1,1 @@
+[MOCKED AI RESPONSE] Análisis completado: Es riesgoso pero prometedor.
