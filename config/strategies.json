@@ -1,0 +1,27 @@
+{
+  "meta": {
+    "version": "v1.0",
+    "doctrine": "Biomimetic Persistence"
+  },
+  "global_tactics": {
+    "throttling": {
+      "mode": "stochastic",
+      "distribution": "normal",
+      "mean_delay_sec": 4.5,
+      "variance": 1.5
+    },
+    "fingerprinting": {
+      "tls_consistency": "strict",
+      "required_headers": ["Sec-Ch-Ua", "Referer"]
+    }
+  },
+  "domains": {
+    "example.com": {
+      "risk_level": "LOW",
+      "auth_strategy": {
+        "method": "basic",
+        "emulation": "standard_browser"
+      }
+    }
+  }
+}

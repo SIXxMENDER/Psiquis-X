@@ -1,0 +1,7 @@
+{
+    "EMA_Trend_Period": 120,
+    "EMA_Pullback_Period": 40,
+    "EMA_Trigger_Period": 5,
+    "ADX_Period": 14,
+    "ADX_Threshold": 22
+}

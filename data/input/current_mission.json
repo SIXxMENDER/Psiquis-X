@@ -1,0 +1,65 @@
+{
+  "plan_id": "CORTEX_PROTOCOL_ZERO_SHOT",
+  "parametros_globales": {
+    "mission_id": "CORTEX_PROTOCOL_ZERO_SHOT",
+    "priority": "CRITICAL",
+    "objective": "Desarrollar una arquitectura t\u00e9cnica para la adquisici\u00f3n y uso aut\u00f3nomo de nuevas herramientas mediante la lectura de documentaci\u00f3n API estandarizada.",
+    "context": {
+      "current_status": "Sistema de agentes orquestados funcional.",
+      "desired_status": "Sistema capaz de descubrir, leer manuales (OpenAPI/Swagger) y ejecutar herramientas desconocidas sin intervenci\u00f3n humana.",
+      "key_concepts": [
+        "Zero-Shot Tool Learning",
+        "Automated API Discovery",
+        "OpenAPI Specification (Swagger) Parsing",
+        "Large Language Model Tool Use"
+      ]
+    }
+  },
+  "plan_de_ejecucion": [
+    {
+      "phase": 1,
+      "agent_role": "RESEARCHER",
+      "action": "WEB_SEARCH_DEEP_DIVE",
+      "instructions": "Investiga el estado del arte actual (2024-2025) sobre 'Zero-Shot Tool Use' y 'LLM Tool Discovery'.",
+      "search_queries": [
+        "Zero-Shot Tool Learning architecture patterns",
+        "How LLMs parse OpenAPI Swagger files for autonomous function calling",
+        "Frameworks for autonomous API integration AI agents",
+        "Gorilla LLM and Toolformer architecture explained",
+        "Dynamic tool generation from JSON schemas"
+      ],
+      "output_requirement": "Resumen t\u00e9cnico de los m\u00e9todos existentes y limitaciones actuales."
+    },
+    {
+      "phase": 2,
+      "agent_role": "SYSTEM_ARCHITECT",
+      "action": "MECHANISM_ANALYSIS",
+      "instructions": "Analiza c\u00f3mo un LLM puede leer un archivo 'manual' (JSON/YAML de OpenAPI) y convertirlo en una funci\u00f3n ejecutable.",
+      "specific_questions": [
+        "\u00bfC\u00f3mo se mapea un endpoint de API a una 'tool definition' del LLM?",
+        "\u00bfQu\u00e9 estructura debe tener el prompt del sistema para interpretar errores HTTP y corregirse solo?",
+        "\u00bfC\u00f3mo manejar la autenticaci\u00f3n (OAuth2/API Key) de forma aut\u00f3noma?"
+      ]
+    },
+    {
+      "phase": 3,
+      "agent_role": "STRATEGIST",
+      "action": "STRATEGY_FORMULATION",
+      "instructions": "Dise\u00f1a la estrategia de integraci\u00f3n para el sistema CORTEX.",
+      "requirements": "Define el flujo de datos: Desde que el usuario pide algo imposible, hasta que el sistema busca la documentaci\u00f3n, crea el puente y ejecuta la acci\u00f3n."
+    },
+    {
+      "phase": 4,
+      "agent_role": "PROJECT_MANAGER",
+      "action": "ROADMAP_GENERATION",
+      "instructions": "Genera una hoja de ruta paso a paso para implementar esta tecnolog\u00eda.",
+      "format": "Lista cronol\u00f3gica desde Prueba de Concepto (PoC) hasta Escalamiento.",
+      "milestones": [
+        "PoC: Script simple de lectura de Swagger",
+        "MVP: Agente capaz de usar 3 APIs nuevas sin c\u00f3digo previo",
+        "Beta: Sistema de manejo de errores y auto-correcci\u00f3n",
+        "Release: Integraci\u00f3n completa en CORTEX"
+      ]
+    }
+  ]
+}

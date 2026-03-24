@@ -1,0 +1,46 @@
+# Environment variables
+.env
+.sixmender_chat_id
+.secrets.json
+.paused_plans.json
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+venv/
+env/
+*.egg-info/
+
+# IDE
+.vscode/
+.idea/
+
+# Data
+datasets/
+*.csv
+*.json.local
+
+# Logs
+*.log
+
+# Generated agents
+agentes_en_desarrollo/
+productos_finales/
+
+# Data & Dynamic Content
+data/*/
+!data/**/*.gitkeep
+*.png
+*.jpg
+*.jpeg
+*.gif
+*.mp4
+*.pdf
+research/outputs/
+
+# Secrets
+*.key
+*.pem

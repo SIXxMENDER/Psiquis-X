@@ -1,0 +1,17 @@
+agents:
+- description: Deep Research Agent using LLM
+  enabled: true
+  module: agentes.core.agente_p0
+  name: P0_Research
+- description: Python Code Generator
+  enabled: true
+  module: agentes.core.agente_p3
+  name: P3_Coder
+- description: File System I/O Agent
+  enabled: true
+  module: agentes.core.agente_p8
+  name: P8_IO
+- description: Genesis Protocol (Agent Creator)
+  enabled: true
+  module: agentes.core.agente_p5_genesis
+  name: P5_Genesis

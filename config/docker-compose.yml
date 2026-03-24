@@ -1,0 +1,46 @@
+version: '3.8'
+
+services:
+  backend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: psiquis_core_v3
+    ports:
+      - "8001:8001"
+    volumes:
+      - ./data:/app/data
+      - ./logs:/app/logs
+      # Mount secrets manually if not using Docker Swarm/Secret Manager yet
+      # - ./.env.production:/app/.env
+    env_file:
+      - .env.production
+    restart: unless-stopped
+    networks:
+      - psiquis_net
+    deploy:
+      resources:
+        limits:
+          memory: 4G # Limit 4GB RAM to prevent OOM on small server
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: psiquis_ui_v3
+    ports:
+      - "3000:3000"
+    environment:
+      # Client-side (Browser) needs public URL
+      - NEXT_PUBLIC_API_URL=http://localhost:8001
+      # Server-side (Container) needs internal URL
+      - API_INTERNAL_URL=http://backend:8001
+    restart: unless-stopped
+    networks:
+      - psiquis_net
+    depends_on:
+      - backend
+
+networks:
+  psiquis_net:
+    driver: bridge

@@ -1,0 +1,39 @@
+# GIT
+.git
+.gitignore
+
+# SECRETS
+.env
+.env.backup
+.env.txt
+*.key
+*.pem
+
+# PYTHON
+__pycache__
+*.pyc
+*.pyo
+*.pyd
+venv
+env
+_CUARENTENA_2026-01-10_19-24-18
+archive
+
+# DATA (Except structural dirs)
+data/chroma_db
+psiquis_state.db
+hydra_state.json
+
+# LOGS
+*.log
+logs/
+
+# NODE
+node_modules
+frontend/node_modules
+frontend/.next
+
+# MISC
+INSTALADOR_PSIQUI_X_V3.zip
+documentation
+bounties

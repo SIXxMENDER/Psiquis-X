@@ -1,0 +1,47 @@
+{
+  "nodes": [
+    {
+      "id": "SUPERVISOR",
+      "label": "N\u00daCLEO_CONTROL",
+      "type": "hub"
+    },
+    {
+      "id": "FINANCE",
+      "label": "AUDITOR_FINANZAS",
+      "type": "worker"
+    },
+    {
+      "id": "MARKETING",
+      "label": "CREATIVO_MKT",
+      "type": "worker"
+    },
+    {
+      "id": "TRIBUNAL",
+      "label": "CENTRO_TRIBUNAL",
+      "type": "shield"
+    },
+    {
+      "id": "ESTRATEGA",
+      "label": "ESTRATEGA",
+      "type": "worker"
+    }
+  ],
+  "edges": [
+    {
+      "from": "SUPERVISOR",
+      "to": "FINANCE"
+    },
+    {
+      "from": "SUPERVISOR",
+      "to": "MARKETING"
+    },
+    {
+      "from": "FINANCE",
+      "to": "TRIBUNAL"
+    },
+    {
+      "from": "MARKETING",
+      "to": "TRIBUNAL"
+    }
+  ]
+}

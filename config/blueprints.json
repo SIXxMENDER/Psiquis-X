@@ -1,0 +1,30 @@
+{
+    "meta": {
+        "architecture": "Scrapy-Playwright Hybrid",
+        "pattern": "Resilient State Machine"
+    },
+    "core_patterns": {
+        "navigation": {
+            "preferred_method": "PageMethod",
+            "scroll_strategy": "window.scrollTo(0, document.body.scrollHeight)",
+            "resource_blocking": [
+                "image",
+                "media",
+                "font"
+            ]
+        },
+        "self_healing_protocol": {
+            "trigger_errors": [
+                "TimeoutError",
+                "ElementHandleError",
+                "null_extraction"
+            ],
+            "diagnosis_prompt": {
+                "role": "Engineer",
+                "task": "Analyze HTML snippet. Identify new selector for target concept.",
+                "input_format": "HTML + Target Description",
+                "output_format": "JSON Soup Statement"
+            }
+        }
+    }
+}
