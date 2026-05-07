@@ -1,0 +1,30 @@
+[
+  {
+    "block_id": 0,
+    "timestamp": 1778017050,
+    "previous_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+    "merkle_root": "3428e5282ecb59445ccd2a38e737eff58ac3ed624036127a834b9b2dd72f65e1",
+    "parameters": {
+      "ema_long": 0,
+      "ema_mid": 0,
+      "ema_short": 0
+    },
+    "results": {
+      "max_drawdown_percent": 15.0,
+      "net_profit_percent": 0.0,
+      "sharpe_ratio": 0.5,
+      "total_trades": 0,
+      "win_rate": 0.0,
+      "winning_trades": 0
+    },
+    "quant_consensus": {
+      "is_approved": false,
+      "new_ema_long": 0,
+      "new_ema_mid": 0,
+      "new_ema_short": 0,
+      "rationale_ledger": "Proposal rejected due to a Sharpe Ratio of 0.5, failing to meet the minimum institutional threshold of 1.0.",
+      "reasoning": "The decision is an automatic rejection based on the immutable Rust data. The reported Sharpe Ratio of 0.5 is below the non-negotiable institutional mandate of 1.0. The Risk Manager's argument for adherence to quantitative risk parameters prevails over the Alpha Hunter's speculative optimism. Furthermore, the absence of any executed trades (total_trades: 0) renders the proposal unvalidated and exposes the fund to unacceptable, unquantified risk. Capital will not be deployed."
+    },
+    "hash": "3359cbb1fbf90b36da3cdd2ab24bf2ed671148a620526c794f447eba3d106998"
+  }
+]
