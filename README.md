@@ -107,10 +107,7 @@ Psiquis-X is currently available for **customized pilot deployments** and **inst
 
 ## 🎨 Visual Architecture & Logic Flows
 Detailed documentation for institutional review:
-- [🎨 Logic Diagrams & Overview](docs/architecture/overview.md)
-- [🏛️ Courtroom Adversarial Loop](docs/architecture/courtroom-architecture.md)
-- [🧠 Universal Cortex Routing](docs/architecture/cortex-router.md)
-
+-[Framework Architecture Guide](agentes/docs/framework/README.md)
 ---
 
 ## 👨‍💻 Founding Authors
